@@ -1,0 +1,30 @@
+nav {
+    background-color: #FFF7ED;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vanlife--logo {
+    text-decoration: none;
+    margin: 5px;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    font-weight: bolder;
+    flex-grow: 1;
+    margin-left: 15px;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+
+}
+
+.page--navigate {
+    text-decoration: none;
+    margin: 5px;
+    color: #4D4D4D;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    margin-right: 20px;
+    font-size: 1.1rem;
+}

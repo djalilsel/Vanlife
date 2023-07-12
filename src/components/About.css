@@ -1,0 +1,48 @@
+.about--container{
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+.about--container > img {
+   justify-self: flex-start;
+   max-height: 230px;
+}
+
+.bottom--about--container{
+    font-family: 'Inter', sans-serif;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.bottom--about--container > h2{
+    font-size: 1.4rem;
+}
+.bottom--about--container > .first--about--p{
+    font-weight: bolder;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+.bottom--about--container > .second--about--p{
+    font-weight: bolder;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.bottom--about--container > div{
+    background-color: #FFCC8D;
+    padding: 15px;
+    border-radius: 5px;
+}
+.bottom--about--container > div > h3{
+    color: #161616;
+    font-weight: bolder;
+}
+.bottom--about--container > div > button{
+    margin-top: 10px;
+    color: #FFFFFF;
+    padding: 10px;
+    background-color: #161616;
+    border-radius: 6px;
+    font-weight: bolder;
+}
