@@ -25,15 +25,17 @@
     margin-top: 20px;
     font-weight: 600;
 }
-.main--container button {
+.findUrvan--btn {
+    text-decoration: none;
     color: #FFFFFF;
     background-color: #FF8C38;
     border: none;
     font-family: 'Inter', sans-serif;
     border-radius: 5px;
-    height: 50px;
-    padding-left: 100px;
-    padding-right: 100px;
+    
+    max-height: 50px;
+    text-align: center;
+    padding: 12px;
     margin-top: 40px;
     font-weight: bolder;
 }

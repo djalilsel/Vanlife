@@ -38,7 +38,9 @@
     color: #161616;
     font-weight: bolder;
 }
-.bottom--about--container > div > button{
+.epxVan--btn {
+    text-decoration: none;
+    display: inline-block;
     margin-top: 10px;
     color: #FFFFFF;
     padding: 10px;

@@ -6,13 +6,15 @@ nav {
     align-items: center;
 }
 
-.vanlife--logo {
+.vanlife--logo{
+    flex-grow: 1;
+}
+.vanlife--logo > a {
     text-decoration: none;
     margin: 5px;
     color: #000000;
     font-family: 'Inter', sans-serif;
     font-weight: bolder;
-    flex-grow: 1;
     margin-left: 15px;
     letter-spacing: 2px;
     font-size: 1.5rem;

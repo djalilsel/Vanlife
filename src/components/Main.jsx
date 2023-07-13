@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import MainBackground from './../assets/images/home-hero.png'
 import './Main.css'
 
@@ -14,9 +15,9 @@ export default function Main(){
                     movement.<br/>
                     Rent the perfect van to make your perfect road trip.
                 </p>
-                <button>
+                <Link className="findUrvan--btn" to="/vans">
                     Find your van
-                </button>
+                </Link>
             </div>
         </div>
     )

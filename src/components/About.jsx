@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import AboutImg from './../assets/images/about-hero.png'
 import './About.css'
 
@@ -26,9 +27,9 @@ export default function About(){
                         Your destination is waiting.<br />
                         Your van is ready.
                     </h3>
-                    <button>
+                    <Link className="epxVan--btn" to="/vans">
                         Explore our vans
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
