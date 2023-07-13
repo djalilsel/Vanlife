@@ -3,8 +3,9 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './server'
 import Nav from './pages/Nav'
 import Main from './pages/Main'
-import Vans from './pages/Vans'
 import About from './pages/About'
+import Vans from './pages/Vans'
+import VanDetails from './pages/VanDetails'
 import Footer from './pages/Footer'
 import './App.css'
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/' element={<Main />} />
         <Route path='/about' element={<About />} />
         <Route path='/vans' element={<Vans />} />
+        <Route path='/vans/:id' element={<VanDetails />} />
       </Routes>
       <Footer />
     </BrowserRouter>

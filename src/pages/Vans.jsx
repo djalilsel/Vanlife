@@ -16,6 +16,7 @@ export default function Vans(){
         return(
             <Vancard 
                 key={van.id}
+                id={van.id}
                 img={van.imageUrl}
                 name={van.name}
                 type={van.type}

@@ -8,6 +8,7 @@
 
 .card--text{
     position: relative;
+    color: #161616;
 }
 .card--text > p {
     margin-top: 10px;

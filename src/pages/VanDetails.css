@@ -1,0 +1,39 @@
+.vandetails--container{
+    display: flex;
+    background-color: #FFF7ED;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: bolder;
+}
+.vandetails--image{
+    width: 100%;
+    border-radius: 5px;
+    max-height: 400px;
+}
+
+.vandetails--type{
+    display: inline-block;
+    background-color: #FF8C38;
+    border-radius: 3px;
+    padding: 5px 10px;
+    color: #FFFFFF;
+    font-weight: bolder;
+    font-size: 0.9rem;
+    margin-top: 30px;
+    margin-bottom: 7px;
+    align-self: flex-start;
+}
+
+.rentvan--btn{
+    background-color: #FF8C38;
+    margin-top: 15px;
+    color: #FFFFFF;
+    padding: 10px;
+    display: block;
+    width: 95%;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.9rem;
+}
