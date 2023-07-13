@@ -4,6 +4,9 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .vanlife--logo{

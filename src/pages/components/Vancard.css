@@ -1,0 +1,29 @@
+
+.card--container > img {
+    width: 100%;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.card--text{
+    position: relative;
+}
+.card--text > p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+.second--p {
+    position: absolute;
+    right: 1px;
+}
+
+.van--type{
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 10px;
+    color: #FFEAD0;
+}

@@ -8,4 +8,8 @@ footer{
     color: #FFFFFF;
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
+
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }

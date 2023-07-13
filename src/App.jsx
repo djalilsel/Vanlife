@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom' 
-import Nav from './components/Nav'
-import Main from './components/Main'
-import Vans from './components/Vans'
-import About from './components/About'
-import Footer from './components/Footer'
+import './server'
+import Nav from './pages/Nav'
+import Main from './pages/Main'
+import Vans from './pages/Vans'
+import About from './pages/About'
+import Footer from './pages/Footer'
 import './App.css'
 
 function App() {

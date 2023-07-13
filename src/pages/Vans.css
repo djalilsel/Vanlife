@@ -1,0 +1,51 @@
+.vanspage--container {
+    background-color: #FFF7ED;
+    padding: 20px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: bolder;
+}
+
+.vans--title{
+    color: #161616;
+    font-weight: bolder;
+}
+
+.filters--container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.filters{
+    color: #4D4D4D;
+    background-color: #FFEAD0;
+    padding: 5px 15px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.clear--filters{
+    background-color: #FFF7ED;
+    border: none;
+    text-decoration: underline 1px #161616;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.vancards--container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 10px;
+}
+
+/*
+title 161616
+card FFEAD0 text 4D4D4D
+
+simple E17654 #FFEAD0
+rugged 115E59
+luxury 161616
+*/

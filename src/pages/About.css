@@ -6,6 +6,9 @@
 .about--container > img {
    justify-self: flex-start;
    max-height: 230px;
+   -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .bottom--about--container{
