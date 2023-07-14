@@ -40,3 +40,6 @@ header {
 .page--navigate--container :hover{
     text-decoration: underline;
 }
+.active--page--navigate {
+    text-decoration: underline;
+}

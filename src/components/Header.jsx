@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './Header.css'
 
 export default function Header(){
@@ -11,9 +11,9 @@ export default function Header(){
             
             <nav className="page--navigate--container">
                 
-                <Link className="page--navigate" to="/host">Host</Link>
-                <Link className="page--navigate" to="/about">About</Link>
-                <Link className="page--navigate" to="/vans">Vans</Link>
+                <NavLink className={({isActive}) => isActive ? "page--navigate active--page--navigate" : "page--navigate"} to="/host">Host</NavLink>
+                <NavLink className={({isActive}) => isActive ? "page--navigate active--page--navigate" : "page--navigate"} to="/about">About</NavLink>
+                <NavLink className={({isActive}) => isActive ? "page--navigate active--page--navigate" : "page--navigate"} to="/vans">Vans</NavLink>
             </nav>
         </header>
     )
