@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom' 
 import './server'
-import Nav from './pages/Nav'
+import Layout from './components/Layout'
 import Main from './pages/Main'
 import About from './pages/About'
 import Vans from './pages/Vans'
 import VanDetails from './pages/VanDetails'
-import Footer from './pages/Footer'
+import Dashboard from './pages/Host/Dashboard'
+import Income from './pages/Host/Income'
+import Reviews from './pages/Host/Reviews'
+import HostLayout from './components/HostLayout'
 import './App.css'
 
 function App() {
@@ -14,14 +17,19 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Nav />
       <Routes>
-        <Route path='/' element={<Main />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/vans' element={<Vans />} />
-        <Route path='/vans/:id' element={<VanDetails />} />
+        <Route element={<Layout />}>
+          <Route path='/' element={<Main />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/vans' element={<Vans />} />
+          <Route path='/vans/:id' element={<VanDetails />} />
+          <Route path='/host' element={<HostLayout />} >
+            <Route path='/host' element={<Dashboard />}/>
+            <Route path='/host/income' element={<Income />} />
+            <Route path='/host/reviews' element={<Reviews />} />
+          </Route>
+        </Route>
       </Routes>
-      <Footer />
     </BrowserRouter>
   )
 }

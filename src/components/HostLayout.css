@@ -1,0 +1,22 @@
+.hostlayout--container {
+    background-color: #FFF7ED;
+    padding: 10px;
+}
+
+.hostlayout--container > nav {
+    height: 35px;
+    display: flex;
+}
+
+.hostlayout--navigation {
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: bolder;
+    margin: 5px 10px;
+    color:#161616;
+    font-size: 1.1rem;
+}
+.hostlayout--navigation:hover{
+    text-decoration: underline;
+    font-size: 1.12rem;
+}
