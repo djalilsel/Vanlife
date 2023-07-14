@@ -12,7 +12,6 @@ export default function ListedVans(){
         .then(datas => setData(datas.vans))
     }, [])
 
-    console.log(data)
 
     const LISTEDVANS = data.map((van => {
         return(

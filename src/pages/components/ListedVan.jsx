@@ -7,7 +7,7 @@ export default function ListedVan(props){
         <Link className="listedvan--container" to={`/host/vans/${props.id}`}>
             <img src={props.img} alt="van image" />
             <p>
-                <span style={{fontSize: "1.2rem"}}>{props.name}</span> <br></br>
+                <span style={{fontSize: "1.4rem"}}>{props.name}</span> <br></br>
                 ${props.price}<span style={{fontSize: "0.8rem"}}>/day</span>
             </p>
         </Link>
