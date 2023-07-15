@@ -1,0 +1,35 @@
+.hostlistedvan--topcontainer{
+    display: flex;
+    background-color: white;
+
+}
+.hostlistedvan--topcontainer > img{
+    width: 90px;
+    margin: 15px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.hostlistedvan--topcontainer > div{
+    display: flex;
+    flex-direction: column;
+}
+
+.hostlistedvan--topcontainer--type{
+    display: inline-block;
+    background-color: #FF8C38;
+    font-family: 'Inter', sans-serif;
+    border-radius: 3px;
+    padding: 5px 10px;
+    color: #FFFFFF;
+    font-weight: bolder;
+    font-size: 0.8rem;
+    margin-top: 25px;
+    margin-bottom: 7px;
+    align-self: flex-start;
+}
+
+.hostlistedvan--topcontainer--text{
+    font-family: 'Inter', sans-serif;
+    font-weight: bolder;
+}

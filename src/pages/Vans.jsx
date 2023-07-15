@@ -40,9 +40,18 @@ export default function Vans(){
                     <button className="clear--filters">Clear filters</button>
                 </div>
             </div>
-            <div className="vancards--container">
+            {vans.length > 0 ?
+
+            (<div className="vancards--container">
                 {VANCARDS}
-            </div>
+            </div>) :
+            
+            
+
+            (<div style={{fontSize: "2rem"}}>
+                ...Loading
+            </div>)
+        }
         </div>
     )
 }

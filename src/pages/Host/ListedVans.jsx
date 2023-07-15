@@ -26,8 +26,20 @@ export default function ListedVans(){
     }))
 
     return(
+        
         <div className="listedvans--container">
-            {LISTEDVANS}
-        </div>
+        {data.length > 0 ?
+            (<section>
+                {LISTEDVANS}
+            </section>) :
+            
+
+            (<div style={{fontSize: "2rem"}}>
+                ...Loading
+            </div>)
+        }
+        </div>  
+
+        
     )
 }

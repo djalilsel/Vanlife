@@ -11,9 +11,9 @@ export default function Header(){
             
             <nav className="page--navigate--container">
                 
-                <NavLink className={({isActive}) => isActive ? "page--navigate active--page--navigate" : "page--navigate"} to="/host">Host</NavLink>
-                <NavLink className={({isActive}) => isActive ? "page--navigate active--page--navigate" : "page--navigate"} to="/about">About</NavLink>
-                <NavLink className={({isActive}) => isActive ? "page--navigate active--page--navigate" : "page--navigate"} to="/vans">Vans</NavLink>
+                <NavLink className={({isActive}) => isActive ? "page--navigate active--page--navigate" : "page--navigate"} to="host">Host</NavLink>
+                <NavLink className={({isActive}) => isActive ? "page--navigate active--page--navigate" : "page--navigate"} to="about">About</NavLink>
+                <NavLink className={({isActive}) => isActive ? "page--navigate active--page--navigate" : "page--navigate"} to="vans">Vans</NavLink>
             </nav>
         </header>
     )

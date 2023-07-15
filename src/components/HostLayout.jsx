@@ -3,10 +3,12 @@ import { NavLink, Outlet } from "react-router-dom";
 import './HostLayout.css'
 
 export default function HostLayout(){
+
     const activeLink ={
         textDecoration: "underline",
         fontSize: "1.12rem"
     }
+    
     return(
         <div className="hostlayout--container">
             <nav>
@@ -14,26 +16,26 @@ export default function HostLayout(){
                 className="hostlayout--navigation"
                 end
                 style={({isActive}) => isActive ? activeLink : null}
-                to="/host">
+                to=".">
                     Dashboard
                 </NavLink>
 
                 <NavLink 
                 className="hostlayout--navigation"
                 style={({isActive}) => isActive ? activeLink : null}
-                to="/host/income">Income
+                to="income">Income
                 </NavLink>
 
                 <NavLink 
                 className="hostlayout--navigation"
                 style={({isActive}) => isActive ? activeLink : null}
-                to="/host/vans">Vans
+                to="vans">Vans
                 </NavLink>
 
                 <NavLink 
                 className="hostlayout--navigation"
                 style={({isActive}) => isActive ? activeLink : null}
-                to="/host/reviews">Reviews
+                to="reviews">Reviews
                 </NavLink>
             </nav>
             <Outlet />
