@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router";
 import Header from "./Header";
 import Footer from "./Footer";
-import './Layout.css'
+import './layout.css'
 
 
 export default function Layout(){
