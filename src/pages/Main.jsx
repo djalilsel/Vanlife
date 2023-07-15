@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MainBackground from './../assets/images/home-hero.png'
 import './Main.css'
 
 export default function Main(){
     return(
-        <div className="main--container" style={{height: innerHeight - 145, width: innerWidth}}>
+        <div className="main--container" >
             <div>
                 <h2>
                     You got the travel plans, we got the travel vans.

@@ -2,13 +2,14 @@ import React from "react";
 import { Outlet } from "react-router";
 import Header from "./Header";
 import Footer from "./Footer";
+import './Layout.css'
 
 
 export default function Layout(){
     return(
-        <div>
+        <div className="site--wrapper">
             <Header />
-            <Outlet />
+            <Outlet /> 
             <Footer />
         </div>
     )

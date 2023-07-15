@@ -1,4 +1,6 @@
 .main--container{
+    flex-grow: 1;
+    background-color: #FFF7ED;
     background-image: url(./../assets/images/home-hero.png);
     background-repeat: no-repeat;
     background-position: center;
