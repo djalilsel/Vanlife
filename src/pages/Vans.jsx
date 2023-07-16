@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from  "react";
 import Vancard from "./components/Vancard";
+import { Link, useLoaderData, useSearchParams } from "react-router-dom";
+import getVans from "../../api";
 import './Vans.css'
-import { Link, useSearchParams } from "react-router-dom";
+
+export function loader(){
+    return getVans()
+}
 
 export default function Vans(){
 
+    
     let style1
     let style2
     let style3
-
-    const [vans, setVans] = useState([])
+    
     const [typeFilter, setTypeFilter] = useSearchParams()
     const filter = typeFilter.get("type")
+    const vans = useLoaderData()
+    
+  
     
     
-    useEffect(() => {
-        fetch("/api/vans")
-        .then(res => res.json())
-        .then(data => setVans(data.vans))
-    }, [])
 
     if(filter === "simple"){
         style1 = "selected1"
@@ -71,7 +74,6 @@ export default function Vans(){
         }
     })
 
-    
 
     return(
         <div className="vanspage--container">
@@ -85,19 +87,12 @@ export default function Vans(){
                     <div id="Luxury" className={`filters ${style3}`} onClick={() => handleFilterChange("type", "luxury")} >Luxury</div>
                     { filter && <button className="clear--filters" onClick={() => handleFilterChange("type", null)} >Clear filters</button>}
                 </div>
-            </div>
-            {vans.length > 0 ?
+            </div> 
 
-            (<div className="vancards--container">
+            <div className="vancards--container">
                 {VANCARDS}
-            </div>) :
+            </div>
             
-            
-
-            (<div style={{fontSize: "2rem"}}>
-                ...Loading
-            </div>)
-        }
         </div>
     )
 }
