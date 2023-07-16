@@ -1,0 +1,29 @@
+1- if You want to change a searchparam in the url 
+    and u have more than one u use call this function
+    inside " to " it only works with " Link "
+
+    function genNewSearchParamString(key, value) {
+    const sp = new URLSearchParams(searchParams)
+    if (value === null) {
+      sp.delete(key)
+    } else {
+      sp.set(key, value)
+    }
+    return `?${sp.toString()}`
+  }
+
+  -- If you are using setsearchparam use this function: 
+
+  function handleFilterChange(key, value) {
+    setSearchParams(prevParams => {
+      if (value === null) {
+        prevParams.delete(key)
+      } else {
+        prevParams.set(key, value)
+      }
+      return prevParams
+    })
+  }
+---------------------------------------------------------------
+
+2- To check for a character in a string use str.includes("character")

@@ -27,13 +27,32 @@
     font-size: 0.9rem;
     cursor: pointer;
 }
+#Simple:hover , .selected1{
+    color: #FFF7ED;
+    background-color: #E17654;
+}
+
+#Rugged:hover, .selected2{
+    color: #FFF7ED;
+    background-color: #115E59;
+}
+
+#Luxury:hover, .selected3{
+    color: #FFF7ED;
+    background-color: #161616;
+}
+
 
 .clear--filters{
+    color: #161616;
     background-color: #FFF7ED;
     border: none;
     text-decoration: underline 1px #161616;
     letter-spacing: 1px;
     cursor: pointer;
+}
+.clear--filters:active{
+    color: red;
 }
 
 .vancards--container{

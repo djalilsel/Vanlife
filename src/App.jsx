@@ -16,6 +16,7 @@ import HostDetails from './pages/Host/HostDetails'
 import HostPricing from './pages/Host/HostPricing'
 import HostPhotos from './pages/Host/HostPhotos'
 import './App.css'
+import ErrorPage from './pages/ErrorPage'
 
 function App() {
   
@@ -39,6 +40,7 @@ function App() {
               <Route path='photos' element={<HostPhotos />} />
             </Route>
           </Route>
+          <Route path='*' element={<ErrorPage />}/>
         </Route>
       </Routes>
     </BrowserRouter>

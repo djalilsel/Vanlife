@@ -1,8 +1,11 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import './Vancard.css'
 
 export default function Vancard(props){
+
+    const [searchParams, setSearchParams] = useSearchParams()
+
     let color
     if( props.type === "simple" ){
         color = "#E17654"
@@ -11,8 +14,9 @@ export default function Vancard(props){
     } else if( props.type === "luxury" ){
         color = "#161616"
     }
+
     return(
-        <Link to={`/vans/${props.id}`}>
+        <Link to={props.id} state={{ search: searchParams.toString()}}>
             <div className="card--container">
                 <img src={props.img} alt="van image" />
                 <div className="card--text">

@@ -1,18 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { json, useParams } from "react-router-dom";
+import { json, useParams, Link, useLocation } from "react-router-dom";
 import './VanDetails.css'
 
 export default function VanDetails(){
+
+    let location = "?" + useLocation().state.search
     const param = useParams()
     const [data, setData] = useState([])
 
+    function backtofilter() {
+
+        function formbacktofilter(){
+            filter = filter[1].split("&")
+            filter[1] = filter[0]
+            if(filter[1].includes("&")){
+                formbacktofilter()
+            }
+        }
+
+        let filter = location?.split("type=")
+        if(filter[1]?.includes("&")){
+            formbacktofilter()
+        }
+        return filter[1]
+    } 
 
     useEffect(() => {
         fetch(`/api/vans/${param.id}`)
         .then(res => res.json())
         .then(datas => setData(datas.vans))
     }, [param.id])
-    console.log(data)
 
     let color
     if( data.type === "simple" ){
@@ -25,6 +42,9 @@ export default function VanDetails(){
 
     return(
             <div className="vandetails--container">
+                <Link className="backtovans" to={'..' + location} relative="path" >
+                    &larr; <span style={{textDecoration: "underline"}}>Back to { useLocation().state.search.includes("type=") === true? `${backtofilter()}` : "all"} vans</span>
+                </Link>
                 <img className="vandetails--image" src={data.imageUrl} alt="van image" />
                 <div className="vandetails--type" style={{backgroundColor: color}}>
                     {data.type}
