@@ -17,6 +17,7 @@ import HostPhotos from './pages/Host/HostPhotos'
 import ErrorPage from './pages/ErrorPage'
 import Error from './pages/Error'
 import Login from './pages/Login'
+import { requireAuth } from '../utils'
 import './App.css'
 
   const router = createBrowserRouter(createRoutesFromElements(
@@ -29,27 +30,19 @@ import './App.css'
       <Route 
       path='host' 
       element={<HostLayout />}
-      loader={async () =>{
-        return null
-      }} >
+      loader={async () => await requireAuth()} >
         <Route 
         index 
         element={<Dashboard />}
-        loader={async () =>{
-          return null
-        }} />
+        loader={async () => await requireAuth()} />
         <Route 
         path='income' 
         element={<Income />}
-        loader={async () =>{
-          return null
-        }} />
+        loader={async () => await requireAuth()} />
         <Route 
         path='reviews' 
         element={<Reviews />}
-        loader={async () =>{
-          return null
-        }} />
+        loader={async () => await requireAuth()} />
         <Route 
         path='vans' 
         element={<ListedVans />}
@@ -61,21 +54,15 @@ import './App.css'
           <Route 
           index 
           element={<HostDetails />}
-          loader={async () =>{
-            return null
-          }} />
+          loader={async () => await requireAuth()} />
           <Route 
           path='pricing' 
           element={<HostPricing />}
-          loader={async () =>{
-            return null
-          }} />
+          loader={async () => await requireAuth()} />
           <Route 
           path='photos' 
           element={<HostPhotos />}
-          loader={async () =>{
-            return null
-          }} />
+          loader={async () => await requireAuth()} />
         </Route>
       </Route>
       <Route path='*' element={<ErrorPage />}/>

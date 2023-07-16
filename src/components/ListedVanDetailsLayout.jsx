@@ -4,9 +4,11 @@ import { useParams, Link, NavLink } from "react-router-dom";
 import ListedVanDetails from "../pages/Host/ListedVanDetails";
 import { useLoaderData } from "react-router";
 import { getHostVans } from "../../api";
+import { requireAuth } from "../../utils";
 import './ListedVanDetailsLayout.css'
 
-export function loader({ params }){
+export async function loader({ params }){
+    await requireAuth()
     return getHostVans(params.id)
 }
 

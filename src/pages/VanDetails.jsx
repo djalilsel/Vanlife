@@ -3,7 +3,8 @@ import { useParams, Link, useLocation, useLoaderData } from "react-router-dom";
 import { getVans } from "../../api";
 import './VanDetails.css'
 
-export function loader({ params }){
+export async function loader({ params }){
+    await requireAuth()
     return getVans(params.id)
 }
 
