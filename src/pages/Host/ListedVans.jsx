@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import ListedVan from "../components/ListedVan";
+import { useLoaderData } from "react-router";
+import { getHostVans } from "../../../api";
 import './ListedVans'
+
+export function loader({ params }){
+    return getHostVans(params.id)
+}
 
 export default function ListedVans(){
 
-    const [data, setData] = useState([])
+    const data = useLoaderData()
 
-    useEffect(() => {
-        fetch("/api/host/vans")
-        .then(res => res.json())
-        .then(datas => setData(datas.vans))
-    }, [])
+
 
 
     const LISTEDVANS = data.map((van => {
@@ -28,16 +30,7 @@ export default function ListedVans(){
     return(
         
         <div className="listedvans--container">
-        {data.length > 0 ?
-            (<section>
-                {LISTEDVANS}
-            </section>) :
-            
-
-            (<div style={{fontSize: "2rem"}}>
-                ...Loading
-            </div>)
-        }
+            {LISTEDVANS}
         </div>  
 
         

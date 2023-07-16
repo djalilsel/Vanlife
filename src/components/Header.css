@@ -37,9 +37,20 @@ header {
     margin-right: 20px;
     font-size: 1.1rem;
 }
+
+.page--navigate--container{
+    display: flex;
+    align-items: center;
+}
 .page--navigate--container :hover{
     text-decoration: underline;
 }
 .active--page--navigate {
     text-decoration: underline;
+}
+
+.page--navigate > img{
+    width: 1.5rem;
+    padding: 0px;
+    margin: 0px;
 }

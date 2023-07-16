@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { json, useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, useLoaderData } from "react-router-dom";
+import { getVans } from "../../api";
 import './VanDetails.css'
+
+export function loader({ params }){
+    return getVans(params.id)
+}
 
 export default function VanDetails(){
 
     let location = "?" + useLocation().state.search
-    const param = useParams()
-    const [data, setData] = useState([])
+    const data = useLoaderData()
 
     function backtofilter() {
 
@@ -25,11 +29,6 @@ export default function VanDetails(){
         return filter[1]
     } 
 
-    useEffect(() => {
-        fetch(`/api/vans/${param.id}`)
-        .then(res => res.json())
-        .then(datas => setData(datas.vans))
-    }, [param.id])
 
     let color
     if( data.type === "simple" ){

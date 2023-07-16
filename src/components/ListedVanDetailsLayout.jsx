@@ -2,19 +2,17 @@ import React, { useState, useEffect} from "react";
 import { Outlet } from "react-router";
 import { useParams, Link, NavLink } from "react-router-dom";
 import ListedVanDetails from "../pages/Host/ListedVanDetails";
+import { useLoaderData } from "react-router";
+import { getHostVans } from "../../api";
 import './ListedVanDetailsLayout.css'
+
+export function loader({ params }){
+    return getHostVans(params.id)
+}
 
 export default function ListedVanDetailsLayout(){
 
-    const param = useParams()
-
-    const [data, setData] = useState([])
-
-    useEffect(() => {
-        fetch(`/api/host/vans/${param.id}`)
-        .then(res => res.json())
-        .then(datas => setData(datas.vans[0]))
-    }, [param.id])
+    const data = useLoaderData()
     
     const activeLink ={
         textDecoration: "underline",
@@ -29,11 +27,11 @@ export default function ListedVanDetailsLayout(){
             <div className="ListedVanDetailsLayout--container">
                 <div>
                     <ListedVanDetails
-                    type={data.type}
-                    id={data.id}
-                    name={data.name}
-                    imageUrl={data.imageUrl}
-                    price={data.price}
+                        type={data[0].type}
+                        id={data[0].id}
+                        name={data[0].name}
+                        imageUrl={data[0].imageUrl}
+                        price={data[0].price}
                     />
                 </div>
                 <nav>
@@ -57,7 +55,7 @@ export default function ListedVanDetailsLayout(){
                         Photos
                     </NavLink>
                 </nav>
-                <Outlet context={[data, setData]}/>
+                <Outlet context={data}/>
             </div>
         </div>
     )

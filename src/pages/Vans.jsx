@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from  "react";
 import Vancard from "./components/Vancard";
 import { Link, useLoaderData, useSearchParams } from "react-router-dom";
-import getVans from "../../api";
+import { getVans } from "../../api";
 import './Vans.css'
 
 export function loader(){
