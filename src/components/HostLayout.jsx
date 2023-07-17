@@ -4,6 +4,8 @@ import './HostLayout.css'
 
 export default function HostLayout(){
 
+    console.log("im rendering the hostLayout")
+
     const activeLink ={
         textDecoration: "underline",
         fontSize: "1.12rem"

@@ -4,16 +4,14 @@ import { useLoaderData } from "react-router";
 import { getHostVans } from "../../../api";
 import './ListedVans'
 
-export function loader({ params }){
+export async function loader({ params }){
+    console.log("You got the host vans data")
     return getHostVans(params.id)
 }
 
 export default function ListedVans(){
 
     const data = useLoaderData()
-
-
-
 
     const LISTEDVANS = data.map((van => {
         return(
