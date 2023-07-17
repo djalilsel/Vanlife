@@ -24,6 +24,14 @@
     font-size: 1.6rem;
 }
 
+.login--container > h2{
+    color: #960f8f;
+    border: 3px solid rgb(231, 85, 85);
+    background-color: rgb(243, 157, 157);
+    padding: 15px;
+    border-radius: 5px;
+}
+
 .login--form{
     display: flex;
     min-height: 250px;

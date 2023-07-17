@@ -7,9 +7,8 @@ export default function RequireAuth(){
     const isLoggedIn = false
 
     if(!isLoggedIn){
-        return <Navigate to="/login" />
+        return <Navigate to="/login" state={{message: "You must Login first!"}}/>
     } else if(isLoggedIn){
-        console.log("hey")
         return <Outlet />
     }
 

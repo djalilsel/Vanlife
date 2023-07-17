@@ -7,7 +7,6 @@ import { getHostVans } from "../../api";
 import './ListedVanDetailsLayout.css'
 
 export async function loader({ params }){
-    console.log("You got the vandetails data")
     return getHostVans(params.id)
 }
 
