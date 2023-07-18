@@ -20,14 +20,14 @@ import HostPricing from './pages/Host/HostPricing'
 import HostPhotos from './pages/Host/HostPhotos'
 import ErrorPage from './pages/ErrorPage'
 import Error from './pages/Error'
-import Login from './pages/Login'
-import RequireAuth from '../utils'
+import Login, { action as loginAction } from './pages/Login'
+import RequireAuth from './RequireAuth'
 import './App.css'
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/' element={<Layout />}>
       <Route index element={<Main />} />
-      <Route path='login' element={<Login />}/>
+      <Route path='login' element={<Login />} action={loginAction}/>
       <Route path='about' element={<About />} />
       <Route path='vans' element={<Vans />} loader={vansLoader}  errorElement={<Error />}/>
       <Route path='vans/:id' element={<VanDetails />} loader={vanDetailsloader} />

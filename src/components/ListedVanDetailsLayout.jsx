@@ -6,8 +6,12 @@ import { useLoaderData } from "react-router";
 import { getHostVans } from "../../api";
 import './ListedVanDetailsLayout.css'
 
+
 export async function loader({ params }){
+
+    console.log("You got the host vans data")
     return getHostVans(params.id)
+    
 }
 
 export default function ListedVanDetailsLayout(){

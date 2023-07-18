@@ -1,36 +1,57 @@
 import React, { useState } from "react";
-import { Link, useLocation, useOutletContext } from "react-router-dom";
+import { Link, useLocation, Form } from "react-router-dom";
+import { loginUser } from "../../api";
 import './Login.css'
+
+
+export async function action({ request }) {
+
+    const formData = await request.formData()
+    const email = formData.get("email")
+    const password = formData.get("password")
+    const data = await loginUser({email, password})
+    .then(data => data.token ? localStorage.setItem("loggedin", true) : null)
+    .then(() => {rredirect = true})
+        .catch(err => console.log(err))
+        
+    
+    console.log(localStorage.getItem("loggedin"))
+    return null
+}
 
 export default function Login(){
 
-    const [loginInfo, setLoginInfo] = useState({ email: "", password: "" })
+
+    const [status, setStatus] = useState("idle")
+    const [error, setError] = useState(null)
     const  { state } = useLocation()
-    const message = state
+    const messagee = state
+
 
     function handleSubmit(event){
+        messagee.message = ""
         event.preventDefault()
-        console.log(loginInfo)
-    }
+        setStatus("submitting")
+        setError(null)
+        .finally(() => setStatus("idle"))
 
-    function handleChange(event){
-        setLoginInfo(prevLoginInfo => (
-            {...prevLoginInfo, 
-            [event.target.name]: event.target.value}
-        ))} 
+    }
+    
+
 
     return (
         <div className="login--wrapper">
             <div className="login--container">
                 <h1>Sign in to your account</h1>
-                {message && <h2>{message.message}</h2>}
-            <form action="Login" className="login--form">
-                <input name="email" className="login--input" type="email" placeholder="Enter your email" onChange={handleChange} value={loginInfo.email}/>
-                <input name="password" className="login--input under" type="password" placeholder="Enter your password" onChange={handleChange} value={loginInfo.password}/>
-                <button onClick={handleSubmit}>
+                {error && <h2>{error.message}</h2>}
+                {messagee?.message && <h2>{messagee.message}</h2>}
+            <Form method="post" className="login--form" replace>
+                <input name="email" className="login--input" type="email" placeholder="Enter your email" />
+                <input name="password" className="login--input under" type="password" placeholder="Enter your password" />
+                <button disabled={status === "submitting" ? true : false} >
                     Sign in
                 </button>
-            </form>
+            </Form>
             <section>Don't have an account? <Link to='.' className="createaccount">Create one now</Link></section>
             </div>
         </div>
