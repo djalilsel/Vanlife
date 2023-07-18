@@ -11,7 +11,7 @@ export default function HostPricing(){
     }
 
 
-    const [data, setData] = useOutletContext()
+    const data = useOutletContext()
 
     return(
         <div style={Style}>

@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router";
 
 export default function HostPhotos(){
 
-    const [data, setData] = useOutletContext()
+    const data = useOutletContext()
 
     const Style = {
         width: "100px",

@@ -4,7 +4,8 @@ import './HostDetails.css'
 
 export default function HostDetails(){
 
-    const [data, setData] = useOutletContext()
+    const data = useOutletContext()
+    console.log(data)
 
     return(
         <div className="vandetailsinfo--container">

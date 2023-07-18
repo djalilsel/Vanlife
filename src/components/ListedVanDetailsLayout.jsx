@@ -31,11 +31,11 @@ export default function ListedVanDetailsLayout(){
             <div className="ListedVanDetailsLayout--container">
                 <div>
                     <ListedVanDetails
-                        type={data[0].type}
-                        id={data[0].id}
-                        name={data[0].name}
-                        imageUrl={data[0].imageUrl}
-                        price={data[0].price}
+                        type={data.type}
+                        id={data.id}
+                        name={data.name}
+                        imageUrl={data.imageUrl}
+                        price={data.price}
                     />
                 </div>
                 <nav>
@@ -59,6 +59,7 @@ export default function ListedVanDetailsLayout(){
                         Photos
                     </NavLink>
                 </nav>
+                {console.log(data)}
                 <Outlet context={data}/>
             </div>
         </div>
