@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from  "react";
+import React, { Suspense, useEffect, useState } from  "react";
 import Vancard from "./components/Vancard";
-import { Link, useLoaderData, useSearchParams } from "react-router-dom";
+import { Await, Link, defer, useLoaderData, useSearchParams } from "react-router-dom";
 import { getVans } from "../../api";
 import './Vans.css'
 
 export function loader(){
-    return getVans()
+    return defer({ vans: getVans() })
 }
 
 export default function Vans(){
@@ -17,9 +17,8 @@ export default function Vans(){
     
     const [typeFilter, setTypeFilter] = useSearchParams()
     const filter = typeFilter.get("type")
-    const vans = useLoaderData()
+    const preloadedVans = useLoaderData()
     
-  
     
     
 
@@ -44,9 +43,23 @@ export default function Vans(){
         })
     }
 
-    const VANCARDS = vans.map((van) => {
-        if(filter){
-            if(filter === van.type){
+    function waitForLoad(vans) {
+        const VANCARDS = vans.map((van) => {
+            if(filter){
+                if(filter === van.type){
+                    return(
+                        <Vancard 
+                        key={van.id}
+                        id={van.id}
+                        img={van.imageUrl}
+                        name={van.name}
+                        type={van.type}
+                        price={van.price}
+                        description={van.discription}
+                        />
+                    )
+                }
+            } else {
                 return(
                     <Vancard 
                         key={van.id}
@@ -59,20 +72,14 @@ export default function Vans(){
                     />
                 )
             }
-        } else {
-            return(
-                <Vancard 
-                    key={van.id}
-                    id={van.id}
-                    img={van.imageUrl}
-                    name={van.name}
-                    type={van.type}
-                    price={van.price}
-                    description={van.discription}
-                />
-            )
-        }
-    })
+        })
+        return(
+            <div className="vancards--container">
+                {VANCARDS}
+            </div>
+        )
+            
+    }
 
 
     return(
@@ -88,10 +95,11 @@ export default function Vans(){
                     { filter && <button className="clear--filters" onClick={() => handleFilterChange("type", null)} >Clear filters</button>}
                 </div>
             </div> 
-
-            <div className="vancards--container">
-                {VANCARDS}
-            </div>
+            <Suspense fallback={<h2>Loading Vans...</h2>}>
+                <Await resolve={preloadedVans.vans}>
+                    {waitForLoad}
+                </Await>
+            </Suspense>
             
         </div>
     )
