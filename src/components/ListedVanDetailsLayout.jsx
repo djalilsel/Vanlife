@@ -1,5 +1,5 @@
-import React, { useState, useEffect} from "react";
-import { Outlet } from "react-router";
+import React, { useState, useEffect, Suspense } from "react";
+import { Outlet, defer, Await } from "react-router";
 import { useParams, Link, NavLink } from "react-router-dom";
 import ListedVanDetails from "../pages/Host/ListedVanDetails";
 import { useLoaderData } from "react-router";
@@ -9,25 +9,23 @@ import './ListedVanDetailsLayout.css'
 
 export async function loader({ params }){
 
-    console.log("You got the host vans data")
-    return getHostVans(params.id)
+    return defer({ details: getHostVans(params.id) })
     
 }
 
 export default function ListedVanDetailsLayout(){
 
-    const data = useLoaderData()
+    const promiseData = useLoaderData()
     
     const activeLink ={
         textDecoration: "underline",
         fontSize: "1.12rem"
     }
 
-    return(
-        <div>
-            <Link className="backtolistedvans" to='../vans' >
-                <span style={{paddingLeft: "10px", fontSize: "1rem"}}>&larr;</span> <span className="backtolistedvans--text">Back to all vans</span>
-            </Link>
+    function loadData(data){
+
+
+        return(
             <div className="ListedVanDetailsLayout--container">
                 <div>
                     <ListedVanDetails
@@ -62,6 +60,19 @@ export default function ListedVanDetailsLayout(){
                 {console.log(data)}
                 <Outlet context={data}/>
             </div>
+        )
+    }
+
+    return(
+        <div>
+            <Link className="backtolistedvans" to='../vans' >
+                <span style={{paddingLeft: "10px", fontSize: "1rem"}}>&larr;</span> <span className="backtolistedvans--text">Back to all vans</span>
+            </Link>
+            <Suspense fallback={<h2>Loading Details...</h2>}>
+                <Await resolve={promiseData.details}>
+                    {loadData}
+                </Await>
+            </Suspense>
         </div>
     )
 }
