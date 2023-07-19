@@ -5,9 +5,10 @@ import { getHostVans } from "../../../api";
 
 import './ListedVans'
 
-export async function loader({ params }){
+export async function loader(){
+    console.log("hello")
+    return defer({ vans: getHostVans() })
 
-    return defer({ vans: getHostVans(params.id) })
 
 }
 

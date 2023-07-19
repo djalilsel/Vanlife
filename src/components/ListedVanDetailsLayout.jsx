@@ -3,13 +3,13 @@ import { Outlet, defer, Await } from "react-router";
 import { useParams, Link, NavLink } from "react-router-dom";
 import ListedVanDetails from "../pages/Host/ListedVanDetails";
 import { useLoaderData } from "react-router";
-import { getHostVans } from "../../api";
+import { getVan } from "../../api";
 import './ListedVanDetailsLayout.css'
 
 
 export async function loader({ params }){
 
-    return defer({ details: getHostVans(params.id) })
+    return defer({ details: getVan(params.id) })
     
 }
 

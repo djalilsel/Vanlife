@@ -30,7 +30,7 @@ import './App.css'
       <Route path='login' element={<Login />} action={loginAction}/>
       <Route path='about' element={<About />} />
       <Route path='vans' element={<Vans />} loader={vansLoader}  errorElement={<Error />}/>
-      <Route path='vans/:id' element={<VanDetails />} loader={vanDetailsloader} />
+      <Route path='vans/:id' element={<VanDetails />} loader={vanDetailsloader} errorElement={<Error />}/>
       <Route path='host' element={<RequireAuth />}>
         <Route 
         path='/host'
@@ -51,11 +51,13 @@ import './App.css'
           <Route 
           path='vans' 
           element={<ListedVans />}
-          loader={hostvansloader}/>
+          loader={hostvansloader}
+          errorElement={<Error />}/>
           <Route 
           path='vans/:id' 
           element={<ListedVanDetailsLayout />}
-          loader={hostvansdetailsloader}>
+          loader={hostvansdetailsloader}
+          errorElement={<Error />}>
             <Route 
             index 
             element={<HostDetails />}

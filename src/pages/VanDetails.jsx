@@ -1,17 +1,19 @@
 import React, { Suspense, useEffect, useState } from "react";
-import { useParams, Link, useLocation, useLoaderData, Await, defer } from "react-router-dom";
-import { getVans } from "../../api";
+import { Link, useLocation, useLoaderData, Await, defer } from "react-router-dom";
+import { getVan } from "../../api";
 
 import './VanDetails.css'
 
 export async function loader({ params }){
-    return defer( { details: getVans(params.id) } )
+    return defer( { details: getVan(params.id) } )
 }
 
 export default function VanDetails(){
     
     let color
     let location = "?" + useLocation().state.search
+    
+     
     const promiseData = useLoaderData()
 
     function backtofilter() {

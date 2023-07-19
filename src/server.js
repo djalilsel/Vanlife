@@ -20,6 +20,7 @@ createServer({
     routes() {
         this.namespace = "api"
         this.logging = false
+        this.passthrough("https://firestore.googleapis.com/**")
         // this.timing = 2000
 
         this.get("/vans", (schema, request) => {
@@ -34,6 +35,7 @@ createServer({
 
         this.get("/host/vans", (schema, request) => {
             // Hard-code the hostId for now
+            
             return schema.vans.where({ hostId: "123" })
         })
 
