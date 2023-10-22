@@ -42,8 +42,8 @@ export default function Login(){
                 {messagee && <h2>{messagee.message}</h2>}
                 {redirectErr && <h2>{redirectErr}</h2>}
             <Form method="post" className="login--form" replace>
-                <input name="email" className="login--input" type="email" placeholder="Enter your email" />
-                <input name="password" className="login--input under" type="password" placeholder="Enter your password" />
+                <input name="email" placeholder="djalil@gmail.com" className="login--input" type="email" placeholder="Enter your email" />
+                <input name="password" placeholder="djalil123" className="login--input under" type="password" placeholder="Enter your password" />
                 <button disabled={navigation === "submitting"} >
                     {navigation === "idle" ? "Sign in" : "Logging In..."}
                 </button>
